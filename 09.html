@@ -1,0 +1,20 @@
+<script>
+    //轉換型別
+    let a = 123;
+    document.write(typeof(a) + "<br>");
+
+    a=String(a);
+    document.write(typeof(a) + a + "<br>");
+
+    let b = false;
+    document.write(typeof(b) + "<br>");
+
+    b=String(b);
+    document.write(typeof(b) + b + "<br>");
+
+    let c = '123'; 
+    //如果是字母=NaN , 空字串=0 , true = 1 ,false = 0
+    c = Number(c);
+    document.write(typeof(c) + ":" + c + "<br>");
+
+</script>

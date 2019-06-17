@@ -1,0 +1,22 @@
+<script>
+    //---陣列
+
+    let a = [1, 2, 3, 4];
+
+    document.write(typeof (a) + "<br>"); //object 物件
+    document.write(a[4] + "<br>"); //undefined
+    document.write(a.length + "<br>"); //4
+
+    a[4] = 123;
+    document.write(a[4] + "<br>"); //123
+    document.write(a.length + "<br>"); //5
+
+    a[100] = 34;
+    document.write(a[100] + "<br>");
+    document.write(a.length); //101
+    document.write(a[87]); //undefined 長度變更但空的數字未初始化
+
+
+    
+
+</script>

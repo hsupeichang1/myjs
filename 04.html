@@ -1,0 +1,32 @@
+<!-- 計算功能實作 -->
+<script>
+function doCal(){
+    let x = document.getElementById("x").value;
+    let y = document.getElementById("y").value;
+    console.log("x =" + typeof(x)); //string
+    let ans = parseInt(x) + parseInt(y); //將字串轉為數值
+    
+    let result = document.getElementById("result");
+    result.innerHTML = ans;
+
+
+    let ans1 =  parseInt(x/y); //取整數
+    let ans2 = x % y; //餘數
+    result.innerHTML = ans1 + "......" + ans2;
+
+    
+}
+</script>
+
+<input type="number" id="x">
+<select>
+    <option>+</option>
+    <option>-</option>
+    <option>x</option>
+    <option>/</option>
+</select>
+<input type="number" id="y">
+<input type="button" value="=" onclick="doCal()">
+<span>ans:</span> <span id="result"></span>
+<br>
+<script src="04.js"></script>

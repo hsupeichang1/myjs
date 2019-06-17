@@ -1,0 +1,37 @@
+<!-- 九九乘法表 -->
+<table border="1" width="100%" style="text-align: center;">
+    <script>
+        let row = 3; //列數
+        let start = 2; //開始的數
+        let ntd = 4; //td數
+
+
+        //共幾列
+        for (let k = 0; k < row; k++) {
+            document.write("<tr>");
+            
+            //每列有幾個td
+            for (let j = start; j < (start + ntd); j++) {
+                let newj = j + k * ntd; //第二排要加4
+                
+                let ispink;//判斷奇偶數行顏色配置
+                if (ntd % 2 == 0) { 
+                    ispink = (newj + k) %2 == 0;
+                }
+                else {
+                    ispink = (newj) % 2 == 0;
+                }
+                document.write("<td style='padding:10px' bgcolor='"+ (ispink?"pink":"yellow")+"'>");
+
+                //99乘法
+                for (let i = 1; i <= 9; i++) {
+
+                    let r = newj * i;
+                    document.writeln(`${newj} x ${i} = ${r} <br>`);
+                }
+                document.write("</td>");
+            }
+            document.write("</tr>");
+        }
+    </script>
+</table>

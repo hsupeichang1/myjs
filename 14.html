@@ -1,0 +1,59 @@
+<script>
+    //計算骰子100次各點數出現次數
+
+    let p = [0,0,0,0,0,0,0]; //p[0]=0, p[1]=0,...
+    for (let i=0 ; i<100 ; i++){
+        let rand = parseInt(Math.random()*6) +1; //0-5
+        p[rand]++;
+    }
+
+    for (let i=1;i<p.length;i++){
+        document.write(`${i}: ${p[i]} times <br>`);
+    }
+
+    document.write("<hr>");
+
+    //作弊增加456機率
+    let P = [0,0,0,0,0,0,0]; //p[0]=0, p[1]=0,...
+    for (let i=0 ; i<100 ; i++){
+        let rand = parseInt(Math.random()*9) +1; //0-5
+        P[rand<=6?rand:rand-3]++;
+    }
+
+    for (let i=1;i<P.length;i++){
+        document.write(`${i}: ${P[i]} times <br>`);
+    }
+
+
+    // let p1, p2, p3, p4, p5, p6;
+    // p1 = p2 = p4 = p5 = p6 = 0;
+
+    // for (let i = 0; i < 100; i++) {
+    //     let rand = parseInt(Math.random() * 6) + 1; //1-6
+    //     // document.write(rand + "<br>");
+
+    //     switch (rand) {
+    //         case 1:
+    //             p1++;
+    //             break;
+    //         case 2:
+    //             p2++;
+    //             break;
+    //         case 3:
+    //             p3++;
+    //             break;
+    //         case 4:
+    //             p4++;
+    //             break;
+    //         case 5:
+    //             p5++;
+    //             break;
+    //         case 6:
+    //             p6++;
+    //             break;
+    //     }
+
+
+    // }
+    // document.write(`p1: ${p1} times`);
+</script>

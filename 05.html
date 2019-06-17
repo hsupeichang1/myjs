@@ -1,0 +1,74 @@
+
+<script>
+    // let var1 = 10, var2 = 0;
+    // document.write(var1/var2); 
+    //-----
+    //  10/0 Infinity
+    //   0/0 NaN
+    //-----
+
+    //布林值
+    let var1 = true;
+    let var2 = false;
+    let var3 = 4 > 2;  //true
+
+    //---if
+    //let score = prompt("score ?");//詢問輸入視窗
+    let score = Math.random(); //random() 值僅為0-1之間
+    score = parseInt( score * 101 ); //轉成整數 0-100 共有101個數字 
+    //score = parseInt( score * 49 ) + 1    // 1-49  從1開始 要位移一階+1
+    document.write(score + "分 <br>");
+
+    // if (score >= 90){
+    //     document.write("A");
+    // }else{
+    //     if ( score >= 80 && score < 90){
+    //         document.write("B");
+    //     }else{
+    //         if( score >=70 && score < 80){
+    //             document.write("C");
+    //         }else{
+    //             if ( score >=60 && score < 70){
+    //                 document.write("D");
+    //             }else{
+    //                 document.write("E");
+    //             }
+    //         }
+    //     }
+    // }
+
+    if ( score >= 90 ){
+        document.write("A");
+    }else if( score >= 80 ){
+        document.write("B");
+    }else if( score >=70 ){
+        document.write("C");
+    }else if( score >=60){
+        document.write("D");
+    }else if( score >=50 ){
+        document.write("E");
+    }else if( score >=40 ){
+        document.write("F");
+    }else if( score >=30 ){
+        document.write("G");
+    }else if( score >=20 ){
+        document.write("H");
+    }else if( score >=10 ){
+        document.write("I");
+    }else{
+        document.write("J");
+    }
+
+    document.write("<br>");
+
+    // if ( score >= 60 ){
+    //     document.write("pass!");
+    // }else{
+    //     document.write("當!");
+    // }
+
+   
+
+
+</script>
+

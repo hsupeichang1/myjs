@@ -1,0 +1,40 @@
+<script>
+    //---switch
+
+    let a = 10, b = 10;
+    switch (b) {
+        case 1:
+            document.write("A");
+            break;
+        case b: //b可以是變數 相加
+            document.write("B");
+        //break; //沒有break會繼續往下印
+        case 3:
+            document.write("C");
+            break;
+        default: //非必要 也不一定在最後
+            document.write("E");
+            break;
+    }
+    document.write(`<br> over <br>`);
+
+
+    //判斷月份天數
+    let month = parseInt(Math.random()*12) +1 ;
+    document.write(`${month}月有`);
+    switch (month) {
+        case 2:
+            document.write("28天");
+            break;
+        case 4:
+        case 6:
+        case 9:
+        case 11:
+            document.write("30天");
+            break;
+
+        default:
+            document.write("31天");
+            break;
+    }
+</script>

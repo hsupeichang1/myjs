@@ -1,0 +1,35 @@
+<script>
+    //for 迴圈
+    // ex 三道敘述
+    let i = 0;
+    for (let i=0 ; i<10 ; i++){ //此i是區域變數 僅活在回圈內
+        document.write(`${i} <br>`);
+    }
+
+    // for ( ; i<10 ; ){ 
+    //     document.write(i++ +"<br>");
+    // }
+
+    // for ( document.write('進迴圈的第一次動作') ; i<10 ; document.write('<hr>')){ 
+    //     document.write(i++ +"<br>");
+    // }
+
+    
+    // document.write(`<hr>`);
+    // document.write(i);
+
+
+    function myinit(){
+        document.write("hi~");
+    }
+
+    function line(){
+        document.write("<hr>");
+    }
+
+    for ( myinit() ; i<10 ; line()){ 
+        document.write(i++ +"<br>");
+    }
+
+
+</script>

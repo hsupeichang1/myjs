@@ -1,0 +1,34 @@
+<script>
+//--- and or
+//--- ++==在前先計算  在後後算
+
+    let a = 10, b = 3;
+
+    // if (a-- >= 10 && b++ <= 3){ // 先看原值運算
+    //     document.write(`ok ${a} / ${b}`); 
+    // }else{
+    //     document.write(`XX: ${a} / ${b}`);
+    // }
+
+
+
+    // if ( --a >= 10 && ++b <= 3){ // a 已false, 直接出去不會再算b
+    //     document.write(`ok ${a} / ${b}`);
+    // }else{
+    //     document.write(`XX: ${a} / ${b}`);
+    // }
+
+
+    // if ( --a >= 10 || ++b <= 3){ // 
+    //     document.write(`ok ${a} / ${b}`);
+    // }else{
+    //     document.write(`XX: ${a} / ${b}`);
+    // }
+
+    if ( --a >= 10 & ++b <= 3){ // 一個& 或 | 兩邊會執行
+        document.write(`ok ${a} / ${b}`);
+    }else{
+        document.write(`XX: ${a} / ${b}`);
+    }
+
+</script>

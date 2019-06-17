@@ -1,0 +1,43 @@
+<script>
+    let a = 0.1; //0:false, 非零 正負數:true  
+
+    let b; //有定義未初始化 
+    //document.write(typeof(b));   //undefined
+
+    let c = ''; //空字串才false
+
+    if (c){
+        document.write("ok");
+    }else{
+        document.write("xx");
+    }
+
+    let d = 0;
+    let e = "0";
+    if (d == e){
+        document.write("ok");
+    }else{
+        document.write("xx");
+    }
+
+    if (e == false){
+        document.write("ok");
+    }else{
+        document.write("xx");
+    }
+
+
+
+    let f = 'A';
+    let g = 'AB';
+    let h = 'AC';
+    let i = 'a'; //比大A大
+
+    if (f>i){
+        document.write("ok");
+    }else{
+        document.write("xx");
+    }
+
+
+</script>

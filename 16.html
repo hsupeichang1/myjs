@@ -1,0 +1,39 @@
+<script>
+    //二維陣列
+
+    let a = [];
+
+    document.write(typeof (a) + ":" + a.length + "<br>");
+
+    a[0] = [];
+    document.write(typeof (a) + ":" + a.length + "<br>");
+    document.write(typeof (a[0]) + ":" + a[0].length + "<br>");
+
+    a[1] = [];
+    a[0][0] = 123;
+    a[0][1] = 100;
+    a[1][0] = 12;
+    a[2] = 34;
+
+
+    document.write("<hr>");
+    document.write(a.length + "<br>");
+    document.write(a[0].length + "<br>");
+    document.write(a[1].length + "<br>");
+    document.write(a[1].length + "<br>");
+
+    document.write("<hr>");
+
+    for (let i in a) {
+        if (typeof (a[i]) != 'object') {
+            document.write(a[i] + "<br>");
+        } else {
+            for (let j in a[i]) {
+                document.write(a[i][j] + "<br>");
+            }
+        }
+
+    }
+
+    
+</script>
