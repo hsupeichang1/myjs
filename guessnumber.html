@@ -1,0 +1,64 @@
+<script src="api.js"></script>
+<script>
+    let ans = createAnswer(3);
+    let log = '';
+    // console.log(ans);
+    let times = 0;
+
+    function doGuess() {
+        // alert(ans);
+        times++;
+        let guessElement = document.getElementById("guess");
+        let guess = guessElement.value;
+        let result = checkAB(ans, guess);
+
+        if(result == 3 +'A0B'){
+            alert('Winner~');
+            reset();
+        }else if(times == 10){
+            alert('Loser :ans is'+ ans);
+            reset();
+        }
+        else{
+            alert(result);
+        }
+        
+
+        log += times + "." + guess + "=>" + result + "<br>";
+        document.getElementById("log").innerHTML = log;
+        guessElement.value = '';
+        guessElement.focus();
+    }
+
+    function reset() {
+        if(!confirm('Reset?')) return;
+
+        times = 0;
+
+        let ans = createAnswer(3);
+        log = '';
+        document.getElementById("log").innerHTML = log;
+        guessElement.value = '';
+        guessElement.focus();
+    }
+
+</script>
+
+<h1>猜數字遊戲</h1>
+<hr>
+
+<input type="number" name="" id="guess">
+<input type="button" onclick="doGuess()" value="Guess" id="">
+<input type="button" onclick="reset()" value="reset" id="">
+<select id="">
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+    <option>4</option>
+    <option>5</option>
+    <option>6</option>
+</select>
+
+<hr>
+
+<div id="log"></div>

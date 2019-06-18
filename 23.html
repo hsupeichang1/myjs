@@ -1,0 +1,46 @@
+<script src="api.js"></script>
+<script>
+    //正規表示法
+    // let id = 'A123456789';
+    // let regex = /^[A-Z][12][0-9]{8}$/; //^開頭 [第一個字A-Z] [第二個字1或2][數字]{8次} $結尾
+
+    // let id = '11,22,33,44,55,aaa,bbb,777,1234,55225555,0000';
+    // let regex = /[0-9]{1,5}/g;
+
+    // let res = id.match(regex);
+    // if (res == null) {
+    //     document.write("none");
+    // } else {
+    //     for (let v of res) {
+    //         document.write(v + "<br>");
+    //     }
+
+    // }
+
+
+    function ckId() {
+        let id = document.getElementById("id").value;
+        let isRight = checkTwId(id);
+
+        if (!isRight) {
+            alert('XX');
+        } else {
+            alert('ok');
+        }
+    }
+</script>
+>身分證字號產生器: 
+1.全部隨機
+2.指定男或女 radio button
+3.指定英文字
+4.同時輸入英文及男女
+
+>質數 12.html
+>輸入數字產生支票上面的國字
+>猜數字遊戲
+>網頁麻仔台
+>打磚塊遊戲(canvas)
+
+<h3>身分證字號</h3>
+<input type="text" id="id">
+<input type="button" id="" onclick="ckId()" value="驗證">

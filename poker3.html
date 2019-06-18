@@ -1,0 +1,58 @@
+<script>
+    // 洗牌
+    let poker = [];
+    for (let i = 0; i < 52; i++) poker[i] = i;
+    for (let i = poker.length - 1; i > 0; i--) {
+        let rend = parseInt(Math.random() * (i + 1));
+
+        [poker[i], poker[rend]] = [poker[rend], poker[i]];
+    }
+    // //驗證卡片是否重複
+    // for (let i in poker) {
+    //     document.write(poker[i] + "<br>");
+    // }
+
+    document.write("<hr>");
+
+    // 發牌給四個玩家
+    let players = [[], [], [], []];
+
+
+    for (let i = 0; i < poker.length; i++) {
+        // player[家][張]=值
+        players[i % 4][parseInt(i / 4)] = poker[i];
+
+    }
+
+    //花色及數字分配
+    let pattern = ['&spades;','&hearts;','&diams;','&clubs;']
+    let nums = ['A',2,3,4,5,6,7,8,9,10,'J','Q','K'];
+
+
+</script>
+
+<table width="100%" style="border-collapse: collapse;text-align: center;">
+    <tr>
+        <script>
+            for (let player of players) {
+                //排序 理牌
+                player.sort(function(a,b){return a-b;}); 
+                
+                document.write("<tr>");
+                for (let card of player) {
+                    if ([parseInt(card/13)]==1 || [parseInt(card/13)]==2) {
+                        document.write("<td style='padding:5px;border:1px solid #ccc;color:red;'>");
+                    }else{
+                        document.write("<td style='padding:5px;border:1px solid #ccc;'>");
+                    }
+                    
+                    document.write(pattern[parseInt(card/13)] + nums[card % 13]);
+                    document.write("</td>");
+                }
+                document.write("</tr>");
+            }
+
+        </script>
+    </tr>
+
+</table>

@@ -1,0 +1,27 @@
+<script>
+    //timer
+
+    let counter = 0;
+    let timer ;
+
+    function go(){
+        timer = setInterval(doThing,1*1000);
+    }
+
+    function stopGame(){
+        clearInterval(timer); 
+        //只能取消一次  需要把物件放陣列一一取消
+    }
+
+    function doThing(){
+        document.getElementById("counter").innerHTML = counter ++;
+    }
+
+</script>
+
+Timer : <span id="counter"></span>
+
+<hr>
+
+<input type="button" onclick="go()" value="go!">
+<input type="button" onclick="stopGame()" value="stop">

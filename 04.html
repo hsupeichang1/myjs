@@ -1,25 +1,52 @@
 <!-- 計算功能實作 -->
 <script>
-function doCal(){
-    let x = document.getElementById("x").value;
-    let y = document.getElementById("y").value;
-    console.log("x =" + typeof(x)); //string
-    let ans = parseInt(x) + parseInt(y); //將字串轉為數值
-    
-    let result = document.getElementById("result");
-    result.innerHTML = ans;
+    function doCal() {
+        let op = document.getElementById("op");
+        //select中運算符號的順序
+        let opVal = op.selectedIndex;
+        console.log(opVal);
 
 
-    let ans1 =  parseInt(x/y); //取整數
-    let ans2 = x % y; //餘數
-    result.innerHTML = ans1 + "......" + ans2;
+        let x = document.getElementById("x").value;
+        let y = document.getElementById("y").value;
+        console.log("x =" + typeof (x)); //string
 
-    
-}
+        let result = document.getElementById("result");
+
+
+        switch (opVal) {
+            case 0:
+                let ans0 = parseInt(x) + parseInt(y); //將字串轉為數值
+                result.innerHTML = ans0;
+
+                break;
+            case 1:
+                let ans1 = parseInt(x) - parseInt(y); //將字串轉為數值
+                result.innerHTML = ans1;
+
+                break;
+            case 2:
+                let ans2 = parseInt(x) * parseInt(y); //將字串轉為數值
+                result.innerHTML = ans2;
+
+                break;
+            case 3:
+                let ans3 = parseInt(x / y); //取整數
+                let ans4 = x % y; //餘數
+                result.innerHTML = ans3 + "......" + ans4;
+
+                break;
+
+            default:
+                break;
+        }
+
+
+    }
 </script>
 
 <input type="number" id="x">
-<select>
+<select id="op">
     <option>+</option>
     <option>-</option>
     <option>x</option>

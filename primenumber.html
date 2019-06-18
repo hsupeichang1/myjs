@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="tw-zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>質數</title>
+
+    <script>
+        //判斷質數
+        for (let i = 0; i < 10; i++) {
+            if (i % 2 == 0) { // 是偶數
+
+                continue;//以下敘述不做了
+                // break;  直接脫離結構
+            }
+            document.write(i + "<br>");
+        }
+        document.write(`over`);
+    </script>
+</head>
+
+<body>
+
+    <h1>判斷質數</h1>
+    <h3>請輸入查詢的範圍</h3>
+    1~<input type="text"> <input type="button" value="查詢" onclick="cacu()">
+
+    <p>此範圍的質數有: <span id="result"></span> </p>
+
+
+</body>
+
+</html>

@@ -5,18 +5,24 @@
         let rand = parseInt(Math.random() * 52); //0-51
 
         //檢查是否重複
-        for (let j=0;j<i;j++){
-            if(poker[j] == rand){
+        let isRepeat = false;
+        for (let j = 0; j < i; j++) {
+            if (poker[j] == rand) {
                 //重複
+                isRepeat = true;
+                break;
             }
         }
 
+        if (isRepeat) {
+            i--; //重新跑上一圈
+            continue; //以下敘述不要做了
+        }
+
         poker[i] = rand;
-
-
     }
 
     for (let i in poker) {
-            document.write(poker[i] + "<br>");
+        document.write(poker[i] + "<br>");
     }
 </script>

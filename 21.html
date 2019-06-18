@@ -1,0 +1,63 @@
+<script>
+    //function
+
+    function checkInput(){}
+
+    function sayHi(name){
+        document.write(`ya!! ${name}<br>`);
+    }
+    
+    // sayHi('Brad');
+    // 
+
+    let names = ['Brad','Peter','Joyce'];
+
+    function sayHi(ns){
+        for (let name of ns){
+            document.write(`ya!! ${name}<br>`);
+        }
+        
+    }
+
+
+    function sayHi2(name = 'world'){
+            document.write(`ya!! ${name}<br>`);
+    }
+
+
+    function sayHi3(...names){
+            // document.write(typeof names + Array.isArray(names) + "<br>");
+
+            for (let name of names){
+                document.write(`ya333!! ${name}<br>`);
+            }
+    }
+
+
+
+    sayHi(names);
+    sayHi2(); //預設值
+    sayHi2('RRR');
+
+
+    sayHi3();
+    sayHi3('A');
+    sayHi3('A','B','C');
+
+
+
+    let f1= function(x,y){
+        return 2*x + y;
+    }
+
+    let v1 = f1(2,3);
+    document.write(v1+"<br>");
+
+    let f2 = f1;
+
+    let v2 = f2(3,3);
+    document.write(v2);
+
+
+    
+</script>
