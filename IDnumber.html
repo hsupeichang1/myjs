@@ -1,0 +1,292 @@
+<script src="api.js"></script>
+<script>
+
+    function ckId() {
+        let id = document.getElementById("id").value;
+        let isRight = checkTwId(id);
+
+        if (!isRight) {
+            alert('請輸入正確格式');
+        } else {
+            alert('ok');
+        }
+    }
+
+
+
+
+    function go() {
+        //表單選擇
+        let form = document.getElementById("opt");
+        for (var i = 0; i < form.option.length; i++) {
+            if (form.option[i].checked) {
+                var option = form.option[i].value;
+                // console.log(option);
+            }
+        }
+
+
+        let newID = "";
+        let letters = 'ABCDEFGHJKLMNPQRSTUVXYWZIO';
+        let rand = parseInt(Math.random() * 27); //0-26
+        let c1 = letters.charAt(rand); //隨機抓字串中的第n個字元
+        // console.log(c1);
+        let n12 = letters.indexOf(c1) + 10; //子母代碼的數值
+        let n1 = parseInt(n12 / 10); //字母代碼第1個數字
+        let n2 = n12 % 10; //字母代碼第2個數字 第二碼為餘數
+
+        let sex = parseInt(Math.random() * 2) + 1; //性別 1 ,2
+
+        let iChkSum = 0; //檢查
+
+        let newPID = ''; //生成全部的字
+
+
+        switch (option) {
+            case 'all':
+                //第一碼 字母
+                newID += c1;
+                iChkSum = n1 + (n2 * 9);
+
+                // 第2碼 (性別)
+                newID += sex;
+                iChkSum += sex * 8;
+                // console.log(newID);
+
+
+                // 第3~9碼
+
+                for (var i = 0; i < 7; i++) {
+                    c = Math.round(Math.random() * 9);
+                    newID += c;
+                    iChkSum += c * (7 - i);
+                }
+
+                // 第10碼 (檢查碼)
+                newID += ((10 - iChkSum % 10) % 10);
+
+                newPID += newID;
+                document.getElementById("result").innerHTML = newPID;
+
+                break;
+
+
+
+            case 'manwomen':
+                //選擇男女
+                let sexopt = document.getElementById("sexopt");
+                let mf1 = form.sexopt.value; //1 or 2
+
+                //第一碼 字母
+                newID += c1;
+                iChkSum = n1 + (n2 * 9);
+
+                // 第2碼 (性別)
+                newID += mf1;
+                iChkSum += mf1 * 8;
+                console.log(mf1);
+
+
+                // 第3~9碼
+                for (var i = 0; i < 7; i++) {
+                    c = Math.round(Math.random() * 9);
+                    newID += c;
+                    iChkSum += c * (7 - i);
+                }
+
+                // 第10碼 (檢查碼)
+                newID += ((10 - iChkSum % 10) % 10);
+
+                newPID += newID;
+                document.getElementById("result").innerHTML = newPID;
+
+                break;
+
+
+
+            case 'letter':
+                //提取字母
+                let locate = document.getElementById("location");
+                let ln = locate.value;
+                c1 = ln; //把原本隨機字母改為選擇的數值
+                n12 = letters.indexOf(c1) + 10; //子母代碼的數值
+                n1 = parseInt(n12 / 10); //字母代碼第1個數字
+                n2 = n12 % 10; //字母代碼第2個數字 第二碼為餘數
+
+                //第一碼 字母
+                newID += c1;
+                iChkSum = n1 + (n2 * 9);
+
+                // 第2碼 (性別)
+                newID += sex;
+                iChkSum += sex * 8;
+                // console.log(newID);
+
+
+                // 第3~9碼
+
+                for (var i = 0; i < 7; i++) {
+                    c = Math.round(Math.random() * 9);
+                    newID += c;
+                    iChkSum += c * (7 - i);
+                }
+
+                // 第10碼 (檢查碼)
+                newID += ((10 - iChkSum % 10) % 10);
+
+                newPID += newID;
+                document.getElementById("result").innerHTML = newPID;
+
+                break;
+
+
+
+            case 'manwomen2':
+                //選擇男女
+                let sexopt2 = document.getElementById("sexopt2");
+                let mf2 = form.sexopt2.value; //1 or 2
+
+                //提取字母
+                let locate2 = document.getElementById("location2");
+                let ln2 = locate2.value;
+                c1 = ln2; //把原本隨機字母改為選擇的數值
+                n12 = letters.indexOf(c1) + 10; //子母代碼的數值
+                n1 = parseInt(n12 / 10); //字母代碼第1個數字
+                n2 = n12 % 10; //字母代碼第2個數字 第二碼為餘數
+
+
+                //第一碼 字母
+                newID += c1;
+                iChkSum = n1 + (n2 * 9);
+
+                // 第2碼 (性別)
+                newID += mf2;
+                iChkSum += mf2 * 8;
+
+
+                // 第3~9碼
+                for (var i = 0; i < 7; i++) {
+                    c = Math.round(Math.random() * 9);
+                    newID += c;
+                    iChkSum += c * (7 - i);
+                }
+
+                // 第10碼 (檢查碼)
+                newID += ((10 - iChkSum % 10) % 10);
+
+                newPID += newID;
+                document.getElementById("result").innerHTML = newPID;
+
+                break;
+
+        }
+
+    }
+
+
+</script>
+>身分證字號產生器:
+1.全部隨機
+2.指定男或女 radio button
+3.指定英文字
+4.同時輸入英文及男女
+
+>質數 12.html
+>輸入數字產生支票上面的國字
+>猜數字遊戲
+>網頁麻仔台
+>打磚塊遊戲(canvas)
+
+<h3>身分證字號</h3>
+<input type="text" id="id">
+<input type="button" id="" onclick="ckId()" value="驗證">
+
+<hr>
+<h3>身分證字號產生器</h3>
+<form id="opt">
+    <input type="radio" id="all" name="option" value="all"><label for="all"> 全部隨機</label> <br>
+    <input type="radio" id="manwomen" name="option" value="manwomen">
+
+    <label for="manwomen"> 指定男或女
+        <select name="sexopt" id="sexopt">
+            <option value="1">男</option>
+            <option value="2">女</option>
+        </select>
+    </label>
+
+    <br>
+
+    <input type="radio" id="letter" name="option" value="letter">
+    <label for="letter"> 指定英文字 <br>
+        <select id="location" name="location" multiple='true'>
+            <option value="A">臺北市(A)
+            <option value="B">臺中市(B)
+            <option value="C">基隆市(C)
+            <option value="D">臺南市(D)
+            <option value="E">高雄市(E)
+            <option value="F">臺北縣(F)
+            <option value="G">宜蘭縣(G)
+            <option value="H">桃園縣(H)
+            <option value="I">嘉義市(I)
+            <option value="J">新竹縣(J)
+            <option value="K">苗栗縣(K)
+            <option value="L">臺中縣(L)
+            <option value="M">南投縣(M)
+            <option value="N">彰化縣(N)
+            <option value="O">新竹市(O)
+            <option value="P">雲林縣(P)
+            <option value="Q">嘉義縣(Q)
+            <option value="R">臺南縣(R)
+            <option value="S">高雄縣(S)
+            <option value="T">屏東縣(T)
+            <option value="U">花蓮縣(U)
+            <option value="V">臺東縣(V)
+            <option value="W">金門縣(W)
+            <option value="X">澎湖縣(X)
+            <option value="Y">陽明山(Y)
+            <option value="Z">連江縣(Z)
+        </select>
+    </label>
+    <br>
+
+    <input type="radio" id="manwomen2" name="option" value="manwomen2">
+    <label for="manwomen2"> 同時輸入英文及男女 <br>
+        指定英文字<br>
+        <select id="location2" name="location2" multiple='true'>
+            <option value="A">臺北市(A)
+            <option value="B">臺中市(B)
+            <option value="C">基隆市(C)
+            <option value="D">臺南市(D)
+            <option value="E">高雄市(E)
+            <option value="F">臺北縣(F)
+            <option value="G">宜蘭縣(G)
+            <option value="H">桃園縣(H)
+            <option value="I">嘉義市(I)
+            <option value="J">新竹縣(J)
+            <option value="K">苗栗縣(K)
+            <option value="L">臺中縣(L)
+            <option value="M">南投縣(M)
+            <option value="N">彰化縣(N)
+            <option value="O">新竹市(O)
+            <option value="P">雲林縣(P)
+            <option value="Q">嘉義縣(Q)
+            <option value="R">臺南縣(R)
+            <option value="S">高雄縣(S)
+            <option value="T">屏東縣(T)
+            <option value="U">花蓮縣(U)
+            <option value="V">臺東縣(V)
+            <option value="W">金門縣(W)
+            <option value="X">澎湖縣(X)
+            <option value="Y">陽明山(Y)
+            <option value="Z">連江縣(Z)
+        </select>
+        <select name="sexopt2" id="sexopt2">
+            <option value="1">男</option>
+            <option value="2">女</option>
+        </select>
+    </label>
+
+    <input type="button" onclick="go()" value="產生身分證字號">
+</form>
+
+<p id="result"></p>

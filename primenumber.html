@@ -6,18 +6,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>質數</title>
-
+    
     <script>
-        //判斷質數
-        for (let i = 0; i < 10; i++) {
-            if (i % 2 == 0) { // 是偶數
-
-                continue;//以下敘述不做了
-                // break;  直接脫離結構
+        
+        function cacu() {
+            let maxnum = document.getElementById("max").value;
+            let result = document.getElementById("result");
+            //判斷質數
+            for (let i = 0; i < maxnum ; i++) {
+                if (i % 2 == 0 && i!==2 ) { // 是偶數
+                    continue;//以下敘述不做了
+                    // break;  直接脫離結構
+                }else if (i==1){ //1
+                    continue;
+                }else if (i % 5 == 0 && i!==5){ //5的倍數
+                    continue;
+                }else if (i % 3 == 0 && i!==3){ //3的倍數
+                    continue;
+                }else if (i % 7 == 0 && i!==7){ //7的倍數
+                    continue;
+                }else if (i % 11 == 0 && i!==11){ //11的倍數
+                    continue;
+                }else if (i % 13 == 0 && i!==13){ //13的倍數
+                    continue;
+                }else if (i % 17 == 0 && i!==17){ //17的倍數
+                    continue;
+                }else if (i % 19 == 0 && i!==19){ //19的倍數
+                    continue;
+                }else if (i % 23 == 0 && i!==23){ //23的倍數
+                    continue;
+                }else if (i % 29 == 0 && i!==29){ //29的倍數
+                    continue;
+                }else if (i % 31 == 0 && i!==31){ //31的倍數
+                    continue;
+                }else if (i % 37 == 0 && i!==37){ //37的倍數
+                    continue;
+                }
+                result.innerHTML += i + ", "; // =只會印出最後一個
             }
-            document.write(i + "<br>");
         }
-        document.write(`over`);
+
     </script>
 </head>
 
@@ -25,9 +53,9 @@
 
     <h1>判斷質數</h1>
     <h3>請輸入查詢的範圍</h3>
-    1~<input type="text"> <input type="button" value="查詢" onclick="cacu()">
+    1~<input type="text" id="max"> <input type="button" value="查詢" onclick="cacu()">
 
-    <p>此範圍的質數有: <span id="result"></span> </p>
+    <p >此範圍的質數有: <div id="result" style="font-size: 30px;"></div> </p>
 
 
 </body>

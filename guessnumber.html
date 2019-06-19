@@ -2,7 +2,7 @@
 <script>
     let ans = createAnswer(3);
     let log = '';
-    // console.log(ans);
+    // alert(ans);
     let times = 0;
 
     function doGuess() {
@@ -47,10 +47,10 @@
 <h1>猜數字遊戲</h1>
 <hr>
 
-<input type="number" name="" id="guess">
+<input type="number" id="guess">
 <input type="button" onclick="doGuess()" value="Guess" id="">
 <input type="button" onclick="reset()" value="reset" id="">
-<select id="">
+<select id="chooseN">
     <option>1</option>
     <option>2</option>
     <option>3</option>
