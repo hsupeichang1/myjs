@@ -1,0 +1,52 @@
+<!-- <script>//數字轉大寫 
+    function NumberTraditional(key, max_number, str) {
+        var newchar = "", tmpnewchar, key_string, part;
+        if (str == '') { str = "元"; }
+        key = key.toString(); key = key.replace(",", "");//key中的',' 
+        key = key.replace(" ", "");//替換key中的空格 
+        key = key.replace("￥", "");//替換掉可能出現的￥字符 
+        key = parseFloat(key); if (isNaN(key) || key == 0) return false; 
+        if (key >max_number) return ""; 
+        key_string = key.toString(); //處理字符串
+        part = key_string.split(".");
+        for (i = part[0].length - 1; i >= 0; i--) {
+            tmpnewchar = ""; perchar = part[0].charAt(i); switch (perchar) {
+                case "0": tmpnewchar = "零" + tmpnewchar; break; case
+                    "1": tmpnewchar = "壹" + tmpnewchar; break; case "2": tmpnewchar = "貳" + tmpnewchar; break; case "3": tmpnewchar = "叁" +
+                        tmpnewchar; break; case "4": tmpnewchar = "肆" + tmpnewchar; break; case "5": tmpnewchar = "伍" + tmpnewchar; break; case
+                    "6": tmpnewchar = "陸" + tmpnewchar; break; case "7": tmpnewchar = "柒" + tmpnewchar; break; case "8": tmpnewchar = "捌" +
+                        tmpnewchar; break; case "9": tmpnewchar = "玖" + tmpnewchar; break;
+            }
+            switch (part[0].length - i - 1) {
+                case 0: tmpnewchar = tmpnewchar + str; break; case 1: if (perchar != 0) tmpnewchar =
+                    tmpnewchar + "拾"; break; case 2: if (perchar != 0) tmpnewchar = tmpnewchar + "佰"; break; case 3: if (perchar !=
+                        0) tmpnewchar = tmpnewchar + "仟"; break; case 4: tmpnewchar = tmpnewchar + "萬"; break; case 5: if (perchar !=
+                            0) tmpnewchar = tmpnewchar + "拾"; break; case 6: if (perchar != 0) tmpnewchar = tmpnewchar + "佰"; break; case 7: if
+                                (perchar != 0) tmpnewchar = tmpnewchar + "仟"; break; case 8: tmpnewchar = tmpnewchar + "億"; break; case 9: tmpnewchar =
+                                    tmpnewchar + "拾"; break;
+            } newchar = tmpnewchar + newchar;
+        } //小數點前進行轉化 
+        if (key_string.indexOf(".") != -1) { 
+            if (part[1].length > 2) part[1] = part[1].substr(0, 2); 
+            for (i = 0; i < part[1].length; i++) {
+            tmpnewchar = ""; perchar = part[1].charAt(i); switch (perchar) {
+                case "0": tmpnewchar = "零" +
+                    tmpnewchar; break; case "1": tmpnewchar = "壹" + tmpnewchar; break; case "2": tmpnewchar = "貳" + tmpnewchar; break;
+                case "3": tmpnewchar = "叁" + tmpnewchar; break; case "4": tmpnewchar = "肆" + tmpnewchar; break; case "5":
+                    tmpnewchar = "伍" + tmpnewchar; break; case "6": tmpnewchar = "陸" + tmpnewchar; break; case "7": tmpnewchar = "柒" +
+                        tmpnewchar; break; case "8": tmpnewchar = "捌" + tmpnewchar; break; case "9": tmpnewchar = "玖" + tmpnewchar; break;
+            }
+            if (i == 0) tmpnewchar = tmpnewchar + "角"; if (i == 1) tmpnewchar = tmpnewchar + "分"; newchar = newchar + tmpnewchar;
+        }
+    } //小數點後進行轉化 
+    while (newchar.search("零零") !=-1) newchar=newchar.replace("零零", "零" );
+    newchar = newchar.replace("零億", "億"); newchar = newchar.replace("億萬", "億"); newchar = newchar.replace("億零萬", "億");
+    newchar = newchar.replace("零萬", "萬"); newchar = newchar.replace("零元", "元"); newchar = newchar.replace("零角", "");
+    newchar = newchar.replace("零分", ""); if (newchar.length > 0 && newchar.charAt(0) == "元") newchar = newchar.replace("元",
+        ""); if (newchar.charAt(newchar.length - 1) == "元") newchar = newchar + "整"; else {
+            if (!(newchar.search("角") != -1
+                || newchar.search("分") != -1)) { newchar = newchar + "元整"; }
+        } //結果處理 
+        return newchar; 
+    }
+</script> -->

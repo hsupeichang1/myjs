@@ -1,0 +1,82 @@
+<!-- canvas -->
+<canvas id="canvas" width="480" height="320" style="border:1px #ccc solid;"></canvas>
+<script src="api.js"></script>
+<script>
+    let ctx = canvas.getContext('2d');
+    let bg = new Image();
+    bg.src = 'bg.jpg';
+
+    let ball1 = new Image();
+    let ball2 = new Image();
+    let ball3 = new Image();
+    let ballImg = [ball1, ball2, ball3];
+    let balls = [];
+
+    let ballobj = {
+            x: 0,
+            y: 0,
+            dx: 10,
+            dy: 10,
+            img: 0
+        }
+
+
+    bg.onload = function () {
+        ctx.drawImage(bg, 0, 0);
+        ball1.src = 'ball.png';
+        ball2.src = 'ball2.png';
+        ball3.src = 'ball3.png';
+    }
+
+    function refresh() { //fps楨數  將畫面重新繪製
+        // 背景固定
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(bg, 0, 0);
+
+        for (let i = 0; i < balls.length; i++) {
+            ctx.drawImage(ballImg[balls[i].img], balls[i].x, balls[i].y);
+        }
+    }
+
+
+    function go() {
+        for (let i = 0; i < balls.length; i++) {
+            moveball(balls[i]);
+        }
+
+    }
+
+    function moveball(obj) {
+        if (obj.x < 0 || obj.x + 50 > canvas.width) {
+            obj.dx *= -1;
+        }
+
+        if (obj.y < 0 || obj.y + 50 > canvas.height) {
+            obj.dy *= -1;
+        }
+        obj.x += obj.dx;
+        obj.y += obj.dy;
+
+    }
+
+    canvas.onmousedown = function (e) {
+        let ballobject = clone(ballobj);// 複製物件api
+        ballobject.x = e.offsetX -25;
+        ballobject.y = e.offsetY -25;
+        ballobject.img = parseInt(Math.random()*3);
+
+        balls[balls.length] = ballobject;
+        
+
+
+    }
+
+    setInterval(refresh, 30);
+    setInterval(go, 50);
+
+
+
+
+</script>
+<hr />
+<input type="button" onclick="go()" value="Go!" />

@@ -1,0 +1,18 @@
+<script>
+    let obj = {
+        name: 'Brad',
+        age:18
+    }
+
+    document.write(obj.name + ":" + obj.age +"<br>");
+
+    let obj1 = new Object(); //建構物件
+    document.write(obj1.name + ":" + obj1.age +"<br>"); //undefined:undefined
+
+    for(let attr in obj){
+        obj1[attr]= obj[attr]; //複製屬性
+    }
+
+    document.write(obj1.name + ":" + obj1.age +"<br>"); //undefined:undefined
+
+</script>

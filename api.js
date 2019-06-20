@@ -93,3 +93,17 @@ function checkAB(ans, gus) {
 
     return a + 'A' + b + 'B';
 }
+
+
+
+//---複製物件 傳回
+function clone(src){
+    if(typeof(src) != 'object') return null;
+
+     let target = new Object();//建構物件
+     for( let attr in src){
+         target[attr] = src[attr];
+     }
+     return target;
+} 
+

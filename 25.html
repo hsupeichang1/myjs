@@ -1,0 +1,61 @@
+<script>
+    // --- 物件導向
+    let bike = new Object(); //透過new建構出來
+
+    //賦予屬性(speed)(重要)及方法
+    bike.speed = 12; 
+    bike.gear = 2;
+    bike.upSpeed = function(){ //透過方法(function)來定義
+        this.speed = this.speed * this.gear * 1.2;
+    }
+    bike.downSpeed = function(){
+        this.speed = this.speed * 0.7;
+    }
+
+    document.write(bike.speed + "<br>");
+    bike.upSpeed();bike.upSpeed();bike.upSpeed();
+    bike.downSpeed();
+    document.write(bike.speed + "<br>");
+
+
+    //另一個表示物件的方式{}
+    let bike2 = {
+        speed: 4, //逗號隔開
+        gear:3,
+        upSpeed:function(){
+            this.speed = this.speed * 1.4;
+        }
+    }; 
+
+    document.write(bike2.speed + "<br>");
+    bike2.upSpeed();bike2.upSpeed();bike2.upSpeed();
+    document.write(bike2.speed + "<br>");
+
+
+
+    bike2['upSpeed']();//可變動寫法 = bike2.upSpeed();
+    document.write(bike2.speed + "<br>");
+
+    let method = 'upSpeed';//可操控變數
+    bike2[method]();
+    document.write(bike2.speed + "<hr>");
+
+
+
+    //陣列方式 列出成員(屬性及方法)
+    for (let key in bike2){
+        document.write(key + ":" + bike2[key] + "<br>");
+    }
+
+    document.write("<hr>");
+
+
+    var aa = 123; //全域變數 瀏覽器也會看到
+    let bb = 456; // 瀏覽器看不到
+    for (let key in window){
+        document.write(key + ":" + window[key] + "<br>");
+    }
+
+
+
+</script>

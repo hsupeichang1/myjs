@@ -1,0 +1,30 @@
+<script>
+    // try catch
+    function test1() {
+        let n = parseInt(Math.random() * 101);
+        document.write(n + '<br>');
+
+        try {
+            test2(n);
+            document.write('ok <br>');
+            return;
+        } catch (a) {
+            document.write('not much <br>')
+            return;
+        } finally { //不管有沒有錯一定要做的事
+            document.write('finally test <br>');
+        }
+        document.write('test end');
+
+    }
+
+    function test2(a) {
+        if (a >= 60) {
+            document.write("test2 ok <br>");
+        } else {
+            throw "oops";
+        }
+    }
+</script>
+
+<input type="button" value="test" onclick="test1()">

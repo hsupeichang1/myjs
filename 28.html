@@ -1,0 +1,60 @@
+<script>
+    let body = document.createElement('body');
+    document.body = body;
+
+    let head = document.createElement('h1');
+    // head.innerHTML = "Brad Big Company";
+    // document.body.appendChild(head);//加到body上
+
+
+
+    let h1text = document.createTextNode('hello, world');
+    head.appendChild(h1text);
+    document.body.appendChild(head);
+
+
+
+    let hr = document.createElement('hr');
+    document.body.appendChild(hr);
+
+
+    
+    //表單
+    let ul = document.createElement('ul');
+    body.appendChild(ul);
+
+    let tempLi;
+    for (let i=0 ; i<3 ; i++ ){
+        let li = document.createElement('li');
+        li.innerHTML = `第 ${i+1} 個項目資料`;
+        ul.appendChild(li);
+
+        if(i==1) tempLi = li; //移掉第二個Li
+    }
+
+    ul.removeChild(tempLi);
+
+    // body.appendChild(hr);  //只有一個物件  再呼叫一次會移到這裡
+    let hr2 = hr.cloneNode(); //複製一樣的物件
+    body.appendChild(hr2);
+
+
+    let ul2 = ul.cloneNode();// 不包含底下成員li
+    body.appendChild(ul2);
+    for (let i=0 ; i<3 ; i++ ){
+        let li = document.createElement('li');
+        li.innerHTML = `第 ${i+1} 個項目資料`;
+        ul.appendChild(li);
+    }
+
+    
+
+
+</script>
+
+<!-- <ul>
+    <li>豬肉</li>
+    <li>雞肉</li>
+    <li>牛肉</li>
+    <li>羊肉</li>
+</ul> -->

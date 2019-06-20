@@ -1,0 +1,74 @@
+<!-- canvas -->
+<h1 id="head"></h1>
+<hr>
+<canvas id="canvas" width="480" height="320" style="border:1px #ccc solid;"></canvas>
+<input type="button" name="" id="" value="Clear" onclick="clearCanvas()">
+<input type="button" value="move ball" onclick="moveball()">
+<script>
+    head.innerHTML = 'Canvas'; //getelementbyId 本身可以直接呼叫 body onload之後
+
+    let ctx = canvas.getContext('2d'); //取得渲染環境(畫布)
+    ctx.fillStyle = 'rgb(255,0,0)';//填滿樣式
+    ctx.fillRect(50, 50, 100, 120); //畫矩形
+
+    ctx.fillStyle = 'rgba(255,255,0, 0.5)'; //改填滿樣式
+    ctx.fillRect(70, 70, 180, 180); //半透明 重疊
+
+
+    ctx.strokeStyle = 'rgb(0,0,255)';//線條
+    ctx.strokeRect(120, 100, 60, 60);
+
+    ctx.clearRect(60, 60, 20, 20); //清除
+
+    ctx.beginPath();
+    ctx.arc(150, 95, 90, 0, 2 * Math.PI);
+    ctx.stroke();
+
+
+    // 滑鼠事件處理  畫圖
+    let isDrag = false;
+    canvas.onmouseup = function (e) {
+        console.log('mouse up');//查看點選區域的數值
+        isDrag = false;
+        ctx.closePath();
+    }
+
+    canvas.onmousedown = function (e) {
+        console.log('mouse down X:' + e.offsetX + "y:" + e.offsetY);
+        isDrag = true;
+        ctx.strokeStyle = 'rgb(0,0,255)';
+        ctx.beginPath();
+        ctx.moveTo(e.offsetX, e.offsetY);
+    }
+
+    canvas.onmousemove = function (e) {
+        if (isDrag) {
+            console.log(e.offsetX + "," + e.offsetY);
+
+            ctx.lineTo(e.offsetX, e.offsetY);
+            ctx.stroke();
+
+        }
+    }
+
+    function clearCanvas() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+
+
+    //ball
+    let ball = new Image();
+    ball.src = "ball.png";
+    ball.onload = function(){
+        ctx.drawImage(ball,100,100);
+    }
+
+    function moveball(){
+        ctx.clearRect(100,100,100,100); //清除求圖片
+        ctx.drawImage(ball,0,0)
+
+    }
+
+
+
+</script>

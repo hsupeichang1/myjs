@@ -1,0 +1,24 @@
+<!-- DOM -->
+<select name="textAlign" id="textAlign" onchange="chAlign()">
+    <option value="">default</option>
+    <option value="left">left</option>
+    <option value="right">right</option>
+    <option value="center">center</option>
+</select>
+<input type="button" value="fortest" onclick="test()">
+<div id="mytext" style="text-align: center;">Hello,world</div>
+
+<script>
+    function test(){
+        let mytext = document.getElementById("mytext");
+        for (let key in mytext.style){//列出可控制成員
+            console.log(key+':'+ mytext.style[key]); 
+        }
+    }
+
+    function chAlign(){
+        let mytext = document.getElementById("mytext");
+        let align = document.getElementById("textAlign");
+        mytext.style[align.name] = align.value;
+    }
+</script>
