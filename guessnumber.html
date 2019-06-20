@@ -1,9 +1,17 @@
 <script src="api.js"></script>
 <script>
-    let ans = createAnswer(3);
+    let ans = createAnswer(1);
     let log = '';
-    // alert(ans);
     let times = 0;
+    let chN = 0;
+
+    function changeNo(N) {
+        log = '';
+        times = 0;
+        chN = document.getElementById("chooseN").value;
+        // console.log(chN);
+        ans = createAnswer(chN);
+    }
 
     function doGuess() {
         // alert(ans);
@@ -12,17 +20,17 @@
         let guess = guessElement.value;
         let result = checkAB(ans, guess);
 
-        if(result == 3 +'A0B'){
+        if (result == chN + 'A0B') {
             alert('Winner~');
             reset();
-        }else if(times == 10){
-            alert('Loser :ans is'+ ans);
+        } else if (times == 10) {
+            alert('Loser :ans is' + ans);
             reset();
         }
-        else{
+        else {
             alert(result);
         }
-        
+
 
         log += times + "." + guess + "=>" + result + "<br>";
         document.getElementById("log").innerHTML = log;
@@ -31,7 +39,7 @@
     }
 
     function reset() {
-        if(!confirm('Reset?')) return;
+        if (!confirm('Reset?')) return;
 
         times = 0;
 
@@ -42,22 +50,25 @@
         guessElement.focus();
     }
 
+
+
 </script>
 
 <h1>猜數字遊戲</h1>
 <hr>
 
 <input type="number" id="guess">
+<select id="chooseN" namae="chooseN" onchange="changeNo(this.value)">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+</select>
 <input type="button" onclick="doGuess()" value="Guess" id="">
 <input type="button" onclick="reset()" value="reset" id="">
-<select id="chooseN">
-    <option>1</option>
-    <option>2</option>
-    <option>3</option>
-    <option>4</option>
-    <option>5</option>
-    <option>6</option>
-</select>
+
 
 <hr>
 
