@@ -1,0 +1,67 @@
+<script>
+    //類別 處理方式
+    class Bike {
+        //建構式
+        constructor(speed) {
+            console.log("new bike~~ 呼叫建構式");
+            this.speed = speed;
+            this.name = '';
+        }
+
+        upspeed() {
+            this.speed += 1.2;
+        }
+    }
+
+    class Scooter extends Bike {
+        constructor(speed, gear) {
+            console.log("new scooter~");
+            super(speed); //呼叫父類別 需要父類別存在
+            this.speed = speed;
+        }
+        setGear(gear) { //新增
+            this.gear(gear);
+
+        }
+        upspeed() { //改寫
+            this.speed = this.speed8(this.gear + 1.2);
+        }
+
+        static m1(){
+            console.log("m1 OK");
+        }
+
+    }
+
+    class Brad{
+        constructor(...c) {
+            console.log("brad ok");
+        }
+    }
+
+    let b1 = new Bike(12);
+    console.log(b1.speed);//傳入12參數
+    console.log(b1.name);
+
+
+    let s1 = new Scooter(12);
+    console.log(s1.upspeed);
+    console.log(s1.name);
+
+    console.log(b1 instanceof Bike);
+    console.log(s1 instanceof Bike);
+    console.log(s1 instanceof Scooter);
+    console.log(b1 instanceof Scooter);
+    
+    
+    let brad1 = new Brad();
+    let brad2 = new Brad(2);
+    let brad3 = new Brad(1,2);
+
+    // let t = new Date(year,month,day)
+    console.log(Math.random());
+    Bike.m1();
+    Scooter.m1();
+
+
+</script>

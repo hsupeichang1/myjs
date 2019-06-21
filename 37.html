@@ -1,0 +1,19 @@
+<script>
+    //建構式 (屬性初始化)
+
+    let f = function () {
+        this.a = 1; //初始化
+        this.b = 2;
+    }
+
+    let obj = new f(); //產生物件實體
+
+    console.log(obj.a + ":" + obj.b);
+
+    f.prototype.b = 3; //原形加上屬性
+    f.prototype.c = 4;
+
+    console.log(obj.a); //1
+    console.log(obj.b); //2 //會依照原始屬性 prototype不會改掉 被隱藏
+    console.log(obj.c); //4
+</script>

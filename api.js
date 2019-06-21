@@ -98,12 +98,28 @@ function checkAB(ans, gus) {
 
 //---複製物件 傳回
 function clone(src){
-    if(typeof(src) != 'object') return null;
+    if(src == null || typeof(src) != 'object') return null;
 
      let target = new Object();//建構物件
      for( let attr in src){
-         target[attr] = src[attr];
+         if(typeof(src[attr] != 'object')){
+             target[attr] = src[attr];
+         }else{
+            target[attr] = clone(target[attr]);
+         }
      }
      return target;
 } 
 
+//星期中文
+Date.prototype.getweek = function(){
+    let w = this.getDay();
+    let ws = ['星期日','星期一','星期二','星期三','星期四','星期五','星期六'];
+    return ws[w];
+}
+
+//民國年
+Date.prototype.getTWyear = function(){
+    let y = this.getFullYear()-1911;
+    return y;
+}

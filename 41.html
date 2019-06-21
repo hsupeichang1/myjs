@@ -1,0 +1,36 @@
+<script src="api.js"></script>
+<script>
+    //Date()
+
+    function Now() {
+        let d1 = new Date();
+        let y = d1.getFullYear();
+        let m = d1.getMonth() + 1;
+        let d = d1.getDate();
+        let t = d1.getHours();
+        let mm = d1.getMinutes();
+        let s = d1.getSeconds();
+
+        let now = "民國 " + d1.getTWyear() + "年 " + m + "月" + d + "日 " + d1.getweek() + t + ":" + mm + ":" + s;
+        // console.log(now);
+        document.getElementById("now").innerHTML = now;
+    }
+
+    
+    //Math
+    let a1 = 3.4;
+    let a2 = 3;
+    let a3 = 3.7;
+
+    console.log(a1 + " : " + Math.ceil(a1)); //天  比3多的直接加一
+    console.log(a2 + " : " + Math.ceil(a2));
+    console.log(a3 + " : " + Math.ceil(a3));
+    console.log(a1 + " : " + Math.floor(a1)); //地  比三多不加一
+    console.log(a2 + " : " + Math.floor(a2));
+    console.log(a3 + " : " + Math.floor(a3));
+
+    setInterval(Now, 500);
+
+</script>
+
+目前日期時間: <span id="now"></span>

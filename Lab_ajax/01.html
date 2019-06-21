@@ -1,0 +1,28 @@
+<script>
+    let xhttp = new XMLHttpRequest();
+
+    function callback() {
+        let state = xhttp.readyState;
+        let status =  xhttp.status;
+        // console.log("back ok" + state);
+
+        if(state == 4){
+            if(status == 200){
+                console.log("data => " + xhttp.responseText);
+                document.getElementById("result").innerHTML = xhttp.responseText;
+            }
+        }
+    }
+
+    function sendtest() {
+        let max = document.getElementById("max").value;
+        //  console.log(max);
+        xhttp.onreadystatechange = callback;
+        xhttp.open("GET", "01.php?max="+max, true);
+        xhttp.send();
+    }
+</script>
+<h1>123</h1>
+<input type="number" id="max">
+<input type="button" value="click me" onclick="sendtest()">
+<div id="result"></div>

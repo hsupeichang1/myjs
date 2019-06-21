@@ -1,0 +1,30 @@
+<script>
+    //個別物件新增方法
+    let bike = function(){
+        console.log("bike()");
+        this.name = name;
+        this.speed = speed;
+    }
+
+    bike.chSpeed = function(speed){
+        this.speed = speed;
+        console.log("bike:chSpeed()");
+    }
+
+    bike.prototype.chSpeed = function(speed){
+        console.log("prototype:chSpeed()");
+    }
+
+    let b1 = new bike("Brad",12);
+    b1.chSpeed = function(speed){
+        console.log("b1:chSpeed()");
+    }
+
+    let b2 = new bike("Allen",34);
+    b1.chSpeed(123);
+    b2.chSpeed(121);
+
+    bike.prototype.chName = function(){
+        
+    }
+</script>

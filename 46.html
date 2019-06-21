@@ -1,0 +1,50 @@
+<script src="api.js"></script>
+<script>
+    function test1(){
+        window.open("","myWindow","width=200","height=200");
+    }
+
+    //驗證表單
+    function goBackend(){
+        let acc= document.getElementById("account").value;
+        let psw = document.getElementById("passwd1").value;
+        let psw2 = document.getElementById("passwd2").value;
+        let id = document.getElementById("twid").value;
+        let isRight = checkTwId(id);
+
+        if(acc.length == 0 || psw == 0 || psw2 == 0 || id == 0){
+            
+            return false;
+        }else if ( acc.length > 12 || psw > 12 || paw2 > 12){
+            alert("請輸入12碼內的英數字");
+            return false;
+        }else if ( !isRight ){
+            return false;
+        }
+
+        return true;
+
+    }
+
+    function chkpsw(){
+        let psw = document.getElementById("passwd1").value;
+        let psw2 = document.getElementById("passwd2").value;
+        if(psw.length > 0 && psw2.length > 0){
+            if(psw != psw2){
+                alert("兩次密碼不相同");
+            }
+        }
+    }
+    
+
+</script>
+<input type="button" name="" id="" value="go" onclick="test1()" >
+<form id="mtform" action="t1.php" onsubmit="goBackend()" method="POST">
+    Account: <input type="text" id="account"><br>
+    password: <input type="password" id="passwd1" onblur="chkpsw()"><br> <!-- 失焦時檢查密碼 -->
+    password2: <input type="password" id="passwd2" onblur="chkpsw()"><br>
+    TW Id: <input type="text" name="" id="twid"><br>
+    memo: <textarea id="memo"></textarea>
+    <input type="file">
+    <input type="submit"value="register" name="" id="">
+</form>

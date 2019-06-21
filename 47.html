@@ -1,0 +1,55 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+
+<h1 id="test1">big company</h1>
+<div id="container">
+    <h1> i am h1</h1>
+    <p>p1</p>
+    <hr>
+    <h2>i am h2</h2>
+    <p>p1</p>
+</div>
+<hr>
+<input type="button" value="go!" id="go" > <br>
+<input type="text" class="inputtext" ><br>
+<input type="text" class="inputtext" ><br>
+<input type="text" class="inputtext" >
+
+<script>
+    //$(selector) 選取元素
+    //$('h1')=>h1   getElementByTag
+    //$('#test')=>id  getElementById
+    //$('.test')=>class   getElementsByClassName
+    //$('#container p') id 底下的p元素
+    $('#test1').click(function(){
+        $('#test1').css('color','red').css('font-size','50px');
+
+        let ps = $('p'); //jQuery 與原生js共用
+        for(let p of ps){
+            p.style.color = 'blue';
+            p.style.backgroundColor = 'yellow';
+        }
+
+        $jobj = $(document.getElementById('container')); //原生喚回jQuery
+        $jobj.css('background-color','aqua');
+    });
+
+    //按鈕暫時關閉
+    let isdisable = false;
+    $('#go').click(function(){
+        isdisable = !isdisable;
+        $(this).attr('disabled',isdisable);
+        setTimeout(enable,2*1000)
+        $('.inputtext').val('hello, world!');
+
+    })
+
+
+    function enable(){
+        isdisable = false;
+        $('#go').attr('disabled',isdisable);
+    }
+
+
+
+</script>
